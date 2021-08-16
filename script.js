@@ -9,7 +9,7 @@ function DomElement(selector, height, width, bg, fontSize) {
 }
 
 DomElement.prototype.createElem = function () {
-  if (this.selector === '.elem') {
+  if (this.selector.startsWith('.')) {
     let createDiv = document.createElement('div');
     createDiv.className = 'elem';
     createDiv.textContent = "Это созданный блок";
@@ -17,7 +17,7 @@ DomElement.prototype.createElem = function () {
     `height: ${this.height}; width: ${this.width}; background: ${this.bg}; font-size: ${this.fontSize}`;
     
     document.body.appendChild(createDiv);
-  } else if (this.selector === '#elem') {
+  } else if (this.selector.startsWith('#')) {
     let createPar = document.createElement('p');
     createPar.id = 'elem';
     createPar.textContent = "Это созданный параграф";
@@ -33,11 +33,6 @@ let domElement2 = new DomElement('#elem', '80px', '800px', 'LightSeaGreen', '44p
 
 domElement1.createElem();
 domElement2.createElem();
-
-
-
-
-
 
 
 
